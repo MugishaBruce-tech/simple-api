@@ -1,11 +1,10 @@
-// A tiny Node.js server (save this as app.js)
 const express = require("express");
-const app = express();
 
+// Create the app but don't listen yet
+const app = express();
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
-});
+// Export just the Express app (without listening)
+module.exports = app;

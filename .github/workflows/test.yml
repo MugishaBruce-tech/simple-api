@@ -1,24 +1,14 @@
 name: Run Tests
-on: [push]  # Triggers on every git push
+on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Uses a fresh Ubuntu VM
-
+    runs-on: ubuntu-latest
     steps:
-      # 1. Check out your code
       - uses: actions/checkout@v4
-
-      # 2. Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'  # Matches your local version
-
-      # 3. Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # 4. Run Jest tests
-      - name: Run tests
-        run: npx jest test.js  # Same command you ran locally
+          node-version: '22'
+      - run: npm ci
+      - run: npm test
