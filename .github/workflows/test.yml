@@ -1,0 +1,10 @@
+name: Run Tests
+on: [push]  # Runs on every git push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4  # Checks out your code
+      - run: npm install
+      - run: npx jest test.js      # Runs your test
